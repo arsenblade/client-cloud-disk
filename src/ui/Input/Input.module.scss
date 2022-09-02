@@ -1,0 +1,18 @@
+.input {
+  border: none;
+  outline: none;
+  padding: 6px 10px;
+  border-bottom: 2px solid #2474db;
+  margin-bottom: 10px;
+  background-color: #e5eaf1;
+  font-size: 16px;
+  line-height: 22px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-within {
+    border-bottom: 2px solid #1c56a2;
+  }
+}
