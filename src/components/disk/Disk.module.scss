@@ -1,13 +1,21 @@
 .disk {
-  position: absolute;
   width: 97%;
+  margin-left: auto;
+  margin-right: auto;
   min-height: 550px;
   background-color: white;
   border-radius: 14px;
-  top: 50%;
+  top: 90px;
   left: 50%;
-  transform: translate(-50%, -45%);
   box-shadow: 0 0 2px rgb(58 66 75 / 10%), 0 2px 4px rgb(58 66 75 / 20%);
+
+  .dropArea {
+    text-align: center;
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 600;
+    margin-top: 250px;
+  }
 
   .menu {
     width: 100%;
@@ -73,4 +81,9 @@
       }
     }
   }
+}
+
+.dropContainer {
+  opacity: 0.8;
+  border: 3px dashed rgb(150, 149, 149);
 }
