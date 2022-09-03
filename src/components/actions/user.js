@@ -1,5 +1,5 @@
 import { setUser } from '../../reducers/userReducer'
-import { axiosPrivate, axiosPublic } from '../api/api'
+import { axiosPrivate, axiosPublic } from '../api/interceptor'
 
 export const registration = async (email, password) => {
   try {

@@ -24,8 +24,43 @@
     justify-self: center;
   }
 
+  .btn {
+    display: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    justify-self: center;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
   .size {
     grid-column-start: 6;
     justify-self: center;
+  }
+
+  &:hover .date {
+    grid-column-start: 3;
+  }
+
+  &:hover .size {
+    grid-column-start: 4;
+  }
+
+  &:hover .downloadButton {
+    background: url('../../../../assets/img/icon-download.png') no-repeat center;
+    grid-column-start: 5;
+    display: block;
+  }
+
+  &:hover .deleteButton {
+    background: url('../../../../assets/img/icon-delete.png') no-repeat center;
+    grid-column-start: 6;
+    display: block;
   }
 }
