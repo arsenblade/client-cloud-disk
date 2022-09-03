@@ -1,0 +1,75 @@
+.containerPopup {
+  position: fixed;
+  background-color: rgba($color: gray, $alpha: 0.4);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  .popup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: #e5eaf1;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 0 2px rgb(58 66 75 / 10%), 0 2px 4px rgb(58 66 75 / 20%);
+    
+    .header {
+      display: flex;
+      align-items: center;
+      column-gap: 100px;
+      margin-bottom: 30px;
+
+      .title {
+        margin: 0;
+      }
+
+      .closeButton {
+        font-size: 20px;
+        padding: 4px 8px;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba($color: #fc3f1d, $alpha: 0.8);
+        }
+
+        &:active {
+          background-color: #fc3f1d;
+        }
+      }
+    }
+
+    .btn {
+      outline: none;
+      border: none;
+      background-color: transparent;
+    }
+
+    >input {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .createButton {
+      background-color: #ffdb4d;
+      box-shadow: 0 8px 14px rgb(255 204 0 / 25%);
+      outline: none;
+      border: none;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 10px;
+      margin-left: auto;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #f6d44b;
+      }
+    }
+
+  }
+}
