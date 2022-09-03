@@ -12,12 +12,14 @@ const File = ({file}) => {
   const formatDate = `${sliceDate[2]}-${sliceDate[1]}-${sliceDate[0]}`
 
   function openDirHandler() {
-    dispatch(pushToStack(currentDir))
-    dispatch(setCurrentDir(file._id))
+    if(file.type === 'dir') {
+      dispatch(pushToStack(currentDir))
+      dispatch(setCurrentDir(file._id))
+    }
   }
 
   return (
-    <div className={styles.file} onClick={file.type === 'dir' ? () => openDirHandler() : ''}>
+    <div className={styles.file} onClick={() => openDirHandler()}>
       <img className={styles.img} width={50} height={50} src={file.type === 'dir' ? dirLogo : fileLogo} alt='' />
       <h2 className={styles.name}>{file.name}</h2>
       <div className={styles.date}>{formatDate}</div>

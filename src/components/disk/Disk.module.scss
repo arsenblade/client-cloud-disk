@@ -21,6 +21,7 @@
       border: none;
       font-weight: 600;
       padding: 8px 20px;
+      font-size: 14px;
       border-radius: 10px;
       margin-left: auto;
       cursor: pointer;
@@ -29,10 +30,20 @@
     }
 
     .back {
-      background-color: white;
-      box-shadow: 0 8px 14px rgb(34 34 34 / 5%);
+      background: url('../../assets/img/back-icon.png') no-repeat center;
+      background-color: transparent;
+      height: 26px;
       &:hover {
-        background-color: rgb(244, 244, 244);
+        background-color: white;
+      }
+
+      &:active {
+        background-color: rgb(245, 245, 245);
+      }
+
+      &:disabled {
+        background-color: transparent;
+        opacity: 0.8;
       }
     }
 
@@ -41,6 +52,24 @@
       box-shadow: 0 8px 14px rgb(255 204 0 / 25%);
       &:hover {
         background-color: #f6d44b;
+      }
+    }
+
+    .uploadInput {
+      display: none;
+    }
+
+    .uploadLabel {
+      font-weight: 600;
+      padding: 8px 20px;
+      font-size: 14px;
+      border-radius: 10px;
+      margin-left: 10px;
+      background-color: rgba($color: white, $alpha: 0.8);
+      box-shadow: 0 8px 14px rgb(34 34 34 / 5%);
+      cursor: pointer;
+      &:hover {
+        background-color: white;
       }
     }
   }
