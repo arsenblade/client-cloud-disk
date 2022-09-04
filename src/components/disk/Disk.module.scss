@@ -2,12 +2,19 @@
   width: 97%;
   margin-left: auto;
   margin-right: auto;
-  min-height: 550px;
+  height: 550px;
   background-color: white;
   border-radius: 14px;
   top: 90px;
   left: 50%;
   box-shadow: 0 0 2px rgb(58 66 75 / 10%), 0 2px 4px rgb(58 66 75 / 20%);
+
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 150px);
+  }
 
   .dropArea {
     text-align: center;

@@ -1,3 +1,4 @@
+import { hideLoader, showLoader } from "../../reducers/appReducer"
 import { addFile, deleteFileAction, setFiles } from "../../reducers/fileReducer"
 import { addUploadFile, changeUploadFile, showUploader } from "../../reducers/uploadReducer"
 import { API_URL, axiosPrivate } from "../api/interceptor"
@@ -5,6 +6,7 @@ import { API_URL, axiosPrivate } from "../api/interceptor"
 export function getFiles(dirId, sortType) {
   return async dispatch => {
     try {
+      dispatch(showLoader())
       let url = `files`
       if (dirId) {
         url = `files?parent=${dirId}`
@@ -20,6 +22,8 @@ export function getFiles(dirId, sortType) {
       dispatch(setFiles(response.data))
     } catch (e) {
       alert(e.response.data.message)
+    } finally {
+      dispatch(hideLoader())
     }
   }
 }

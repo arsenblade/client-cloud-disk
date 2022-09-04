@@ -1,5 +1,21 @@
-.fieldList {
+.filesList {
   padding-bottom: 20px;
+
+  .filesContainer {
+    height: 440px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar  {
+      background-color: white;
+      width: 6px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: #2474db;
+      width: 8px;
+      border-radius: 6px;
+    }
+  }
 
   .header {
     display: grid;
@@ -28,4 +44,11 @@
       justify-self: center;
     }
   }
+}
+
+.noFiles {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 200px;
 }

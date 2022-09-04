@@ -25,6 +25,7 @@ const options = [
 const Disk = () => {
   const dispatch = useDispatch()
   const currentDir = useSelector(state => state.files.currentDir)
+  const loader = useSelector(state => state.app.loader)
   const dirStack = useSelector(state => state.files.dirStack)
   const [dragEnter, setDragEnter] = useState(false)
   const [sortType, setSortType] = useState({value: 'type', label: 'По типу'})
@@ -82,7 +83,13 @@ const Disk = () => {
               <MySelect value={sortType} setSortType={setSortType} options={options}/>
             </div>
           </div>
-        <FileList />
+        {loader 
+        ?         
+          <div className={styles.loader}>
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+          </div> 
+        :
+          <FileList />}
         </div>
       :
         <div className={cn(styles.disk, styles.dropContainer)} onDrop={dropHandler} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
