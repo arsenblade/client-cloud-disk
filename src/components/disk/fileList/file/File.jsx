@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import cn from 'classnames'
 import { pushToStack, setCurrentDir } from '../../../../reducers/fileReducer'
 import { deleteFile, downloadFile } from '../../../actions/file'
+import { sizeFormat } from '../../../../utils/sizeFormat'
 
 const File = ({file}) => {
   const sliceDate = file.date.slice(0, 10).split('-')
@@ -35,7 +36,7 @@ const File = ({file}) => {
       <img className={styles.img} width={50} height={50} src={file.type === 'dir' ? dirLogo : fileLogo} alt='' />
       <h2 className={styles.name}>{file.name}</h2>
       <div className={styles.date}>{formatDate}</div>
-      <div className={styles.size}>{file.size}</div>
+      <div className={styles.size}>{sizeFormat(file.size)}</div>
       {file.type !== 'dir' && <button className={cn(styles.btn, styles.downloadButton)} onClick={(e) => downloadClickHandler(e)}></button>}
       <button onClick={(e) => deleteClickHandler(e)} className={cn(styles.btn, styles.deleteButton)}></button>
     </div>

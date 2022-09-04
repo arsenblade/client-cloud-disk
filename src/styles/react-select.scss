@@ -1,0 +1,132 @@
+.select-container {
+  width: 140px;
+}
+
+.custom-select {
+	&__control {
+		box-shadow: none !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    width: 100% !important;
+    background-color: transparent !important;
+    border: 1px solid #2474db !important;
+    color: #2474db !important;
+    outline: none !important;
+
+		&--menu-is-open {
+			border-color: #1c59a8 !important;
+		}
+	}
+
+  &__single-value {
+    color: #2474db !important;
+  }
+
+	&__value-container {
+		padding: 0 10px !important;
+    width: 80px !important;
+		cursor: pointer !important;
+
+    >div {
+      width: max-content !important;
+    }
+	}
+
+	&__input-container {
+		color: #2474db !important;
+	}
+
+	&__indicator-separator {
+		display: none !important;
+	}
+
+	&__indicators {
+		cursor: pointer !important;
+	}
+
+	&__indicator {
+		color: #2474db !important;
+
+		&:hover {
+			color: #2474db !important;
+		}
+	}
+
+	&__multi-value {
+		background-color: rgba(#2474db, 0.6) !important;
+		border-radius: 0.5rem !important;
+    width: max-content;
+		padding: 4px !important;
+		cursor: pointer;
+	}
+
+	&__multi-value__label {
+		font-size: 80% !important;
+		color: #2474db !important;
+	}
+
+	&__multi-value__remove {
+		color: #2474db !important;
+		
+
+		&:hover {
+			background-color: transparent !important;
+			color: #2474db !important;
+		}
+	}
+
+	&__menu {
+		background-color: white !important;
+		color: #2474db !important;
+	}
+
+	&__option {
+		cursor: pointer !important;
+	}
+
+	&-container {
+		> div {
+			outline: none !important;
+			box-shadow: none !important;
+		}
+
+		.form-control__control {
+      outline: none;
+      border: none;
+      transition-property: all;
+      transition-timing-function: ease-in-out;
+      transition-duration: 200ms;
+			border-color: #ced4da !important;
+			box-shadow: none !important;
+		}
+
+		&:hover,
+		&--menu-is-open {
+			border-color: #ced4da !important;
+		}
+
+		.form-control__indicators {
+      cursor: pointer;
+		}
+	}
+
+	&__menu {
+    @keyframes scaleIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .animate-scaleIn {
+      animation: scaleIn .35s ease-in-out;
+    }
+  }
+
+}

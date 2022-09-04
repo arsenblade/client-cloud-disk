@@ -18,11 +18,40 @@
   }
 
   .menu {
+    display: flex;
     width: 100%;
+    padding: 0 10px;
     min-height: 46px;
     background-color: #ebedef;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
+
+    .menuTwo {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .select {
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-weight: 600;
+      border-radius: 10px;
+      background-color: transparent;
+      border: 1px solid #2474db;
+      color: #2474db;
+      outline: none;
+
+      .option {
+        padding: 6px 10px !important;
+        font-weight: 600;
+        border-radius: 10px;
+        background-color: transparent;
+        border: 1px solid #2474db;
+        color: #2474db;
+        outline: none;
+      }
+    }
 
     .btn {
       outline: none;

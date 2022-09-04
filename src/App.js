@@ -6,6 +6,7 @@ import Navbar from "./components/navbar/Navbar";
 import Uploader from "./components/uploader/Uploader";
 import AppRouter from "./router/AppRouter";
 import './styles/global.scss'
+import './styles/react-select.scss'
 
 function App() {
   const dispatch = useDispatch()

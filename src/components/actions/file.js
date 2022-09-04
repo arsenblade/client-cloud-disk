@@ -2,11 +2,20 @@ import { addFile, deleteFileAction, setFiles } from "../../reducers/fileReducer"
 import { addUploadFile, changeUploadFile, showUploader } from "../../reducers/uploadReducer"
 import { API_URL, axiosPrivate } from "../api/interceptor"
 
-export function getFiles(dirId) {
+export function getFiles(dirId, sortType) {
   return async dispatch => {
     try {
-      console.log(dirId)
-      const response = await axiosPrivate.get(`${dirId ? 'files?parent='+ dirId : 'files'}`, {
+      let url = `files`
+      if (dirId) {
+        url = `files?parent=${dirId}`
+      }
+      if (sortType) {
+        url = `files?sort=${sortType}`
+      }
+      if (dirId && sortType) {
+        url = `files?parent=${dirId}&sort=${sortType}`
+      }
+      const response = await axiosPrivate.get(url, {
       })
       dispatch(setFiles(response.data))
     } catch (e) {
