@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { auth } from "./components/actions/user";
 import Popup from "./components/disk/popup/Popup";
 import Navbar from "./components/navbar/Navbar";
+import Uploader from "./components/uploader/Uploader";
 import AppRouter from "./router/AppRouter";
 import './styles/global.scss'
 
@@ -18,6 +19,7 @@ function App() {
       <Navbar />
       <AppRouter />
       <Popup />
+      <Uploader />
     </div>
   );
 }

@@ -27,16 +27,16 @@ body {
   margin-left: 40px;
 }
 
-// html::-webkit-scrollbar  {
-//   background-color: $gray900;
-//   width: 8px;
-// }
+html::-webkit-scrollbar  {
+  background-color: white;
+  width: 6px;
+}
 
-// html::-webkit-scrollbar-thumb {
-//   background-color: $gray950;
-//   width: 8px;
-//   border-radius: 30px;
-// }
+html::-webkit-scrollbar-thumb {
+  background-color: #2474db;
+  width: 8px;
+  border-radius: 6px;
+}
 
 
 a {

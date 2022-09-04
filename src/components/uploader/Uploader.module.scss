@@ -1,0 +1,116 @@
+.uploader {
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+  width: 400px;
+  height: 320px;
+
+  .fileContainer {
+    overflow-y: auto;
+    height: 270px;
+
+    &::-webkit-scrollbar  {
+      background-color: #e5eaf1;
+      width: 6px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: #2474db;
+      width: 8px;
+      border-radius: 6px;
+    }
+  }
+
+  .header {
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+    background-color: #2474db;
+    height: 50px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+
+    .title {
+      margin: 0;
+      color: white
+    }
+
+    .btn {
+      margin-left: auto;
+      border: none;
+      outline: none;
+      color: white;
+      background-color: transparent;
+      font-size: 20px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($color: #fc3f1d, $alpha: 0.8);
+      }
+
+      &:active {
+        background-color: #fc3f1d;
+      }
+    }
+  }
+
+  .file {
+    padding: 6px 12px;
+
+    .fileHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .btnFile {
+        margin-left: auto;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 16px;
+        padding: 4px 8px;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba($color: #fc3f1d, $alpha: 0.8);
+        }
+  
+        &:active {
+          background-color: #fc3f1d;
+        }
+      }
+
+      .fileName {
+        margin: 0;
+      }
+    }
+
+    .progressBar {
+      position: relative;
+      height: 1rem;
+      border-radius: 8px;
+      margin: 6px 0;
+      background-color: #e5eaf1;
+      display: flex;
+
+      .uploadBar {
+        background-color: #72cc4b;
+        border-radius: 8px;
+      }
+
+      .percentValue {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+}

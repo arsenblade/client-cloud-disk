@@ -1,4 +1,5 @@
 import { addFile, deleteFileAction, setFiles } from "../../reducers/fileReducer"
+import { addUploadFile, changeUploadFile, showUploader } from "../../reducers/uploadReducer"
 import { API_URL, axiosPrivate } from "../api/interceptor"
 
 export function getFiles(dirId) {
@@ -35,16 +36,17 @@ export function uploadFile(file, dirId) {
           const formData = new FormData()
           formData.append('file', file)
           if (dirId) {
-              formData.append('parent', dirId)
+            formData.append('parent', dirId)
           }
-
+          const uploadFile = {name: file.name, progress: 0, id: Date.now()}
+          dispatch(showUploader())
+          dispatch(addUploadFile(uploadFile))
           const response = await axiosPrivate.post(`files/upload`, formData, {
               onUploadProgress: progressEvent => {
                   const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
-                  console.log('total', totalLength)
                   if (totalLength) {
-                      let progress = Math.round((progressEvent.loaded * 100) / totalLength)
-                      console.log(progress)
+                    uploadFile.progress = Math.round((progressEvent.loaded * 100) / totalLength)
+                    dispatch(changeUploadFile(uploadFile))
                   }
               }
           });
