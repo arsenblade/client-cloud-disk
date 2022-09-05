@@ -37,6 +37,66 @@
       display: flex;
       align-items: center;
       margin-left: auto;
+
+      .btnFormat {
+        width: 32px;
+        height: 32px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      .plate {
+        margin: 0 10px;
+        background: url('../../assets/img/icon-plate.png') center no-repeat;
+      }
+
+      .list {
+        margin-right: 10px;
+        background: url('../../assets/img/icon-list.png') center no-repeat;
+      }
+
+      .searchContainer {
+        position: relative;
+        margin-right: 10px;
+
+        &::before {
+          content: '';
+          z-index: 100;
+          position: absolute;
+          width: 1px;
+          height: 38px;
+          top: 0;
+          background-color: #2474db;
+          left: 34px;
+        }
+
+        .search {
+          border: none;
+          outline: none;
+          padding: 3px 10px;
+          padding-left: 36px;
+          border-radius: 10px;
+          width: 250px;
+          border: 1px solid #2474db;
+          line-height: 30px;
+          background: url('../../assets/img/icon-search.png') no-repeat 0px center;
+          background-color: #e5eaf1;
+          font-size: 20px;
+          height: 38px;
+
+        
+          &:hover {
+            opacity: 0.8;
+          }
+        
+          &:focus-within {
+            border: 1px solid #1c56a2;
+          }
+        }
+      }
+
     }
 
     .select {

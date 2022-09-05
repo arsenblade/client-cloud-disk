@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getFiles, uploadFile } from '../actions/file'
+import { getFiles, searchFiles, uploadFile } from '../actions/file'
 import cn from 'classnames'
 import styles from './Disk.module.scss'
 import FileList from './fileList/FileList'
-import { setCurrentDir, setPopupDisplay } from '../../reducers/fileReducer'
+import { setCurrentDir, setPopupDisplay, setView } from '../../reducers/fileReducer'
 import MySelect from '../../ui/Select/Select'
+import { showLoader } from '../../reducers/appReducer'
 
 const options = [
   {
@@ -29,6 +30,8 @@ const Disk = () => {
   const dirStack = useSelector(state => state.files.dirStack)
   const [dragEnter, setDragEnter] = useState(false)
   const [sortType, setSortType] = useState({value: 'type', label: 'По типу'})
+  const [searchName, setSearchName] = useState('')
+  const [searchDebounce, setSearchDebounce] = useState(false)
 
   useEffect(() => {
     dispatch(getFiles(currentDir, sortType.value))
@@ -68,6 +71,21 @@ const Disk = () => {
     setDragEnter(false)
   }
 
+  function searchChangeHandler(e) {
+    setSearchName(e.target.value)
+    if(searchDebounce != false) {
+      clearTimeout(searchDebounce)
+    }
+    dispatch(showLoader())
+    if(e.target.value !== '') {
+      setSearchDebounce(setTimeout((value) => {
+        dispatch(searchFiles(value))
+      }, 500, e.target.value))
+    } else {
+      dispatch(getFiles(currentDir, sortType.value))
+    }
+  }
+
   return (
     !dragEnter 
       ? 
@@ -80,13 +98,18 @@ const Disk = () => {
               <input multiple={true} onChange={(e) => fileUploadHandler(e)} type='file' id='file'  className={styles.uploadInput}/>
             </div>
             <div className={styles.menuTwo}>
+              <div className={styles.searchContainer}>
+                <input className={styles.search} type='text' value={searchName} onChange={(e) => searchChangeHandler(e)}/>
+              </div>
               <MySelect value={sortType} setSortType={setSortType} options={options}/>
+              <button className={cn(styles.btnFormat,styles.plate)} onClick={() => dispatch(setView('plate'))}/>
+              <button className={cn(styles.btnFormat, styles.list)} onClick={() => dispatch(setView('list'))}/>
             </div>
           </div>
         {loader 
         ?         
           <div className={styles.loader}>
-            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
           </div> 
         :
           <FileList />}

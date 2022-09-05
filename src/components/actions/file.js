@@ -100,3 +100,16 @@ export function deleteFile(file) {
       }
   }
 }
+
+export function searchFiles(search) {
+  return async dispatch => {
+      try {
+          const response = await axiosPrivate.get(`files/search?search=${search}`)
+          dispatch(setFiles(response.data))
+      } catch (e) {
+          alert(e?.response?.data?.message)
+      } finally {
+          dispatch(hideLoader())
+      }
+  }
+}

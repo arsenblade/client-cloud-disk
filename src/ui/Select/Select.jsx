@@ -6,8 +6,6 @@ const MySelect = ({value, setSortType, options}) => {
     setSortType(e)
   }
 
-  console.log(value)
-
   return (
     <Select
     className='select-container'

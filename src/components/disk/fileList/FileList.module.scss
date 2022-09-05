@@ -1,7 +1,33 @@
 .filesList {
   padding-bottom: 20px;
 
-  .filesContainer {
+  .hidden {
+    display: none;
+  }
+
+  .filesContainerFormatPlate {
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    padding-top: 20px;
+    column-gap: 10px;
+    justify-content: center;
+    row-gap: 15px;
+    height: 440px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar  {
+      background-color: white;
+      width: 6px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: #2474db;
+      width: 8px;
+      border-radius: 6px;
+    }
+  }
+
+  .filesContainerFormatList {
     height: 440px;
     overflow-y: auto;
 
