@@ -1,10 +1,12 @@
 const SET_USER = 'SET_USER';
 const LOGOUT = 'LOGOUT';
+const LOADING = 'LOADING';
 
 
 const defaultState = {
   currentUser: {},
-  isAuth: false
+  isAuth: false,
+  isLoading: true,
 }
 
 export default function userReducer(state = defaultState, action) {
@@ -13,14 +15,21 @@ export default function userReducer(state = defaultState, action) {
       return {
         ...state,
         currentUser: action.payload,
-        isAuth: true
+        isAuth: true,
+        isLoading: false
       }
     case LOGOUT: 
       localStorage.removeItem('token')
       return {
         ...state,
         currentUser: {},
-        isAuth: false
+        isAuth: false,
+        isLoading: false
+      }
+      case LOADING: 
+      return {
+        ...state,
+        isLoading: false
       }
     default:
       return state
@@ -29,3 +38,4 @@ export default function userReducer(state = defaultState, action) {
 
 export const setUser = user => ({type: SET_USER, payload: user})
 export const logout = () => ({type: LOGOUT})
+export const stopLoading = () => ({type: LOADING})

@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <img src={Logo} alt='' className={styles.logo} />
-      <h1 className={styles.header}>MERN CLOUD</h1>
+      <h1 className={styles.header}>CLOUD DISK</h1>
       
       {!isAuth && <Link to='/login' className={styles.login}>
         <button className={styles.btn}>Войти</button>

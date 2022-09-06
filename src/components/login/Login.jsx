@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const dirStack = useSelector(state => state.files.dirStack)
   const dispatch = useDispatch()
+  const isAuth = useSelector(state => state.user.isAuth)
 
   function handleLogin() {
     dispatch(login(email, password))
@@ -18,12 +19,13 @@ const Login = () => {
   }
 
   return (
+    !isAuth ? 
     <div className={styles.login}>
       <h2 className={styles.header}>Авторизация</h2>
       <Input value={email} setValue={setEmail} type='text' placeholder='Введите адрес электронной почты...'/>
       <Input value={password} setValue={setPassword} type='password' placeholder='Введите пароль...'/>
       <button className={styles.btn} onClick={() => handleLogin()}>Войти</button>
-    </div>
+    </div> : null
   )
 }
 

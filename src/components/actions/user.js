@@ -1,4 +1,4 @@
-import { setUser } from '../../reducers/userReducer'
+import { setUser, stopLoading } from '../../reducers/userReducer'
 import { MyToast } from '../../ui/MyToast/MyToast'
 import { axiosPrivate, axiosPublic } from '../api/interceptor'
 
@@ -27,6 +27,8 @@ export const login =  (email, password) => {
         dispatch(setUser(response.data.user))
       } catch (e) {
         MyToast(e.response.data.message, false)
+      } finally {
+        dispatch(stopLoading())
       }
   }
 }
@@ -39,6 +41,8 @@ export const auth =  () => {
         dispatch(setUser(response.data.user))
       } catch (e) {
         localStorage.removeItem('token')
+      } finally {
+        dispatch(stopLoading())
       }
   }
 }

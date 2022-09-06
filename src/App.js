@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { auth } from "./components/actions/user";
 import Popup from "./components/disk/popup/Popup";
 import Navbar from "./components/navbar/Navbar";
@@ -12,10 +12,20 @@ import MyToastContainer from "./ui/MyToast/MyToastContainer";
 
 function App() {
   const dispatch = useDispatch()
+  const isLoading = useSelector(state => state.user.isLoading)
+
 
   useEffect(() => {
     dispatch(auth())
   }, [])
+
+  if(isLoading) {
+    return (
+      <div className="app">
+      </div>
+    )
+  }
+  
 
   return (
     <div className="app">
