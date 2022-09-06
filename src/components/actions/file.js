@@ -1,6 +1,7 @@
 import { hideLoader, showLoader } from "../../reducers/appReducer"
 import { addFile, deleteFileAction, setFiles } from "../../reducers/fileReducer"
 import { addUploadFile, changeUploadFile, showUploader } from "../../reducers/uploadReducer"
+import { MyToast } from "../../ui/MyToast/MyToast"
 import { API_URL, axiosPrivate } from "../api/interceptor"
 
 export function getFiles(dirId, sortType) {
@@ -21,7 +22,7 @@ export function getFiles(dirId, sortType) {
       })
       dispatch(setFiles(response.data))
     } catch (e) {
-      alert(e.response.data.message)
+      MyToast(e.response.data.message, false)
     } finally {
       dispatch(hideLoader())
     }
@@ -37,8 +38,9 @@ export function createDir(dirId, name) {
         type: 'dir'
       })
       dispatch(addFile(response.data))
+      MyToast('Папка успешно создана', true)
     } catch (e) {
-      alert(e.response.data.message)
+      MyToast(e.response.data.message, false)
     }
   }
 }
@@ -65,7 +67,7 @@ export function uploadFile(file, dirId) {
           });
           dispatch(addFile(response.data))
       } catch (e) {
-          alert(e?.response?.data?.message)
+        MyToast(e?.response?.data?.message || 'Error uploading', false)
       }
   }
 }
@@ -94,9 +96,9 @@ export function deleteFile(file) {
       try {
         await axiosPrivate.delete(`files?id=${file._id}`)
         dispatch(deleteFileAction(file._id))
-        alert('Delete file successfully')
+        MyToast('Папка успешно удалена', true)
       } catch (e) {
-          alert(e?.response?.data?.message)
+        MyToast(e?.response?.data?.message, false)
       }
   }
 }
@@ -107,7 +109,7 @@ export function searchFiles(search) {
           const response = await axiosPrivate.get(`files/search?search=${search}`)
           dispatch(setFiles(response.data))
       } catch (e) {
-          alert(e?.response?.data?.message)
+          MyToast(e?.response?.data?.message || 'Search failed', false)
       } finally {
           dispatch(hideLoader())
       }

@@ -6,7 +6,9 @@ import Navbar from "./components/navbar/Navbar";
 import Uploader from "./components/uploader/Uploader";
 import AppRouter from "./router/AppRouter";
 import './styles/global.scss'
+import 'react-toastify/dist/ReactToastify.css';
 import './styles/react-select.scss'
+import MyToastContainer from "./ui/MyToast/MyToastContainer";
 
 function App() {
   const dispatch = useDispatch()
@@ -21,6 +23,7 @@ function App() {
       <AppRouter />
       <Popup />
       <Uploader />
+      <MyToastContainer />
     </div>
   );
 }

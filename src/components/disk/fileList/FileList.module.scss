@@ -15,6 +15,10 @@
     height: 440px;
     overflow-y: auto;
 
+    @media (max-width: 1340px) {
+      grid-template-columns: repeat(4, 250px);
+    }
+
     &::-webkit-scrollbar  {
       background-color: white;
       width: 6px;

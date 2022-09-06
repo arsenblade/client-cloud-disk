@@ -1,4 +1,5 @@
 import { setUser } from '../../reducers/userReducer'
+import { MyToast } from '../../ui/MyToast/MyToast'
 import { axiosPrivate, axiosPublic } from '../api/interceptor'
 
 export const registration = async (email, password) => {
@@ -7,9 +8,10 @@ export const registration = async (email, password) => {
       email,
       password
     })
-    alert(response.data.message)
+    MyToast('Регистрация успешна', true)
+    
   } catch (e) {
-    alert(e.response.data.message)
+    MyToast(e.response.data.message, false)
   }
 }
 
@@ -24,7 +26,7 @@ export const login =  (email, password) => {
 
         dispatch(setUser(response.data.user))
       } catch (e) {
-        alert(e.response.data.message)
+        MyToast(e.response.data.message, false)
       }
   }
 }
