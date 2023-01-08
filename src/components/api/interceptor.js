@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const API_URL = 'https://cloud-disk-test.herokuapp.com/api/'
+export const API_URL = 'https://server-google-disk.onrender.com/api'
 
 export const axiosPublic = axios.create({
   baseURL: API_URL,
