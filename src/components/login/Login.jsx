@@ -21,6 +21,8 @@ const Login = () => {
   return (
     !isAuth ? 
     <div className={styles.login}>
+      <h2>Email: arsen@mail.ru</h2>
+      <h2>Password: 123456</h2>
       <h2 className={styles.header}>Авторизация</h2>
       <Input value={email} setValue={setEmail} type='text' placeholder='Введите адрес электронной почты...'/>
       <Input value={password} setValue={setPassword} type='password' placeholder='Введите пароль...'/>
